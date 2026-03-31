@@ -1,0 +1,86 @@
+/** app.wxss **/
+page {
+  /* 基础色变量：思源绿(#1B4D3E)、水雾青(#7DB9B6)、晨曦金(#D4AF37)、湖水灰(#F5F9F9) */
+  --primary-color: #1B4D3E;
+  --secondary-color: #7DB9B6;
+  --bg-color: #F5F9F9;
+  --accent-color: #D4AF37;
+  --text-dark: #2C3E50;
+  --text-light: #7F8C8D;
+  
+  background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-dark);
+  font-size: 28rpx;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 40rpx 32rpx; /* 增加呼吸感 */
+  padding-bottom: 180rpx; /* 为自定义 tabbar 预留空间 */
+  box-sizing: border-box;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* 写意风特有的背景纹理 - 宣纸/微颗粒感 */
+.container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 标题样式：更具人文气息 */
+.title {
+  font-family: "PingFang SC", -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1rpx;
+}
+
+/* 按钮重置与写意风样式 */
+button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+button::after {
+  border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  border-radius: 40rpx; /* 圆润感 */
+  padding: 24rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 500;
+  box-shadow: 0 8rpx 20rpx rgba(27, 77, 62, 0.2);
+}
+
+/* 写意类卡片：半透明、有机形态 */
+.xieyi-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 60rpx 8rpx 60rpx 8rpx; /* 树叶/水滴形状的变体 */
+  padding: 40rpx;
+  margin-bottom: 32rpx;
+  border: 1rpx solid rgba(125, 185, 182, 0.2);
+  box-shadow: 0 10rpx 30rpx rgba(0,0,0,0.02);
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.03);
+}

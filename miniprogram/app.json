@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/schedule/schedule",
+    "pages/registration/registration",
+    "pages/success/success",
+    "pages/seat/seat",
+    "pages/photos/photos",
+    "pages/my/my",
+    "pages/records/records",
+    "pages/records/detail",
+    "pages/admin/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#004e9e",
+    "navigationBarTitleText": "长三角交大论坛",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#004e9e",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/schedule/schedule",
+        "text": "日程",
+        "iconPath": "images/schedule.png",
+        "selectedIconPath": "images/schedule-active.png"
+      },
+      {
+        "pagePath": "pages/registration/registration",
+        "text": "报名",
+        "iconPath": "images/register.png",
+        "selectedIconPath": "images/register-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
