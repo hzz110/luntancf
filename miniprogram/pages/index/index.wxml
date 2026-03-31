@@ -1,2 +1,77 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="container">
+  <!-- 顶部欢迎区：水墨意蕴 -->
+  <view class="header-section">
+    <view class="hero-image-placeholder">
+      <image src="/images/hero-bg.jpg" mode="aspectFill" class="hero-image" wx:if="{{heroLoaded}}"></image>
+      <view class="overlay"></view>
+    </view>
+    
+    <view class="welcome-content">
+      <view class="greeting">好久不见 · 长三角见</view>
+      <view class="forum-title title">第三届交大长三角论坛</view>
+    </view>
+  </view>
+
+  <!-- 论坛简介：写意风格卡片 -->
+  <view class="intro-section xieyi-card">
+    <view class="intro-text">在这里，跨越三十年见证铁路与轨交的变迁。</view>
+    <view class="intro-text">在这里，与三百位校友共赴思想与情谊之约。</view>
+    <view class="intro-text">在这里，不聊虚构宏图，只谈交大人的实在。</view>
+  </view>
+
+  <!-- 带有故事感的嘉宾介绍 -->
+  <view class="guests-section">
+    <view class="section-title title">本期校友</view>
+    
+    <view class="guest-card card" wx:for="{{guests}}" wx:key="id">
+      <view class="guest-info">
+        <view class="guest-name title">{{item.name}}</view>
+        <view class="guest-summary">{{item.summary}}</view>
+      </view>
+      <view class="guest-story">{{item.story}}</view>
+    </view>
+  </view>
+
+  <!-- 快速入口 -->
+  <view class="quick-access-section">
+    <view class="section-title title">快速入口</view>
+    <view class="grid-container">
+      <!-- Row 1 -->
+      <view class="grid-card prim" bindtap="goToPage" data-url="/pages/registration/registration">
+        <text class="grid-icon">✏️</text>
+        <view class="grid-text-group">
+          <view class="grid-title">立即报名</view>
+          <view class="grid-sub">参与论坛活动</view>
+        </view>
+      </view>
+      <view class="grid-card" bindtap="goToPage" data-url="/pages/my/my">
+        <text class="grid-icon">📍</text>
+        <view class="grid-text-group">
+          <view class="grid-title">我的计划</view>
+          <view class="grid-sub">查看签到信息</view>
+        </view>
+      </view>
+      <!-- Row 2 -->
+      <view class="grid-card" bindtap="goToPage" data-url="/pages/photos/photos">
+        <text class="grid-icon">📷</text>
+        <view class="grid-text-group">
+          <view class="grid-title">照片直播</view>
+          <view class="grid-sub">查看精彩瞬间</view>
+        </view>
+      </view>
+      <view class="grid-card" bindtap="goToPage" data-url="/pages/records/records">
+        <text class="grid-icon">📜</text>
+        <view class="grid-text-group">
+          <view class="grid-title">往期回顾</view>
+          <view class="grid-sub">会议纪要合集</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 温馨提示 -->
+  <view class="reminder-card">
+    <view class="reminder-title title">温馨提示</view>
+    <view class="reminder-text">报名成功后，签到码会自动保存到您的微信卡包，现场签到请提前准备好。</view>
+  </view>
+</view>

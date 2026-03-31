@@ -1,66 +1,60 @@
-// pages/my/my.js
+const db = wx.cloud.database();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userInfo: null,
+    registration: null,
+    seatInfo: null,
+    loading: true,
+    tableSeats: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow() {
-
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({ selected: 3 });
+    }
+    this.fetchUserData();
   },
+  async fetchUserData() {
+    this.setData({ loading: true });
+    try {
+      // 1. 获取报名信息
+      const regRes = await db.collection('registrations').limit(1).get();
+      if (regRes.data.length > 0) {
+        const reg = regRes.data[0];
+        this.setData({
+          registration: reg,
+          userInfo: {
+            name: reg.name,
+            major: reg.major || reg.year + '届'
+          }
+        });
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+        // 2. 获取座位信息
+        const seatRes = await wx.cloud.callFunction({
+          name: 'fetchSeat'
+        });
 
+        if (seatRes.result && seatRes.result.success) {
+          const seat = seatRes.result.seat;
+          this.setData({
+            seatInfo: seat,
+            tableSeats: seat.mates || []
+          });
+        }
+      } else {
+        // 未报名状态处理
+        this.setData({ registration: null });
+      }
+    } catch (err) {
+      console.error('获取用户信息失败：', err);
+      // 这里的错误由于是演示，可以保持静默或显示空状态
+    } finally {
+      this.setData({ loading: false });
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  goToRegistration() {
+    wx.switchTab({
+      url: '/pages/registration/registration'
+    });
   }
 })
