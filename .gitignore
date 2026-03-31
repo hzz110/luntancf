@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+dist/
+.dev.vars
+package-lock.json
+
+# WeChat Mini Program
+miniprogram_npm/
+project.private.config.json
+.DS_Store

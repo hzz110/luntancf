@@ -1,0 +1,26 @@
+<view class="container detail-page">
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>正在溯源往昔...</text>
+  </view>
+
+  <block wx:else>
+    <view class="article-header">
+      <view class="article-title title">{{record.title}}</view>
+      <view class="article-meta">
+        <text class="article-date">{{record.publishDate}}</text>
+        <text class="article-author">长三角校友论坛组委会</text>
+      </view>
+    </view>
+
+    <view class="article-content rich-content">
+      <rich-text nodes="{{record.content}}"></rich-text>
+    </view>
+
+    <!-- 底部装饰 -->
+    <view class="article-footer">
+      <view class="footer-line"></view>
+      <view class="footer-text">饮水思源 · 爱国荣校</view>
+    </view>
+  </block>
+</view>

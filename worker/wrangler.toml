@@ -1,0 +1,16 @@
+name = "luntan-worker"
+main = "src/index.js"
+compatibility_date = "2024-03-31"
+
+[[d1_databases]]
+binding = "DB" # Available in your worker as env.DB
+database_name = "luntan_db"
+database_id = "YOUR_D1_DATABASE_ID_HERE"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "luntan_assets"
+
+[vars]
+# Add any environment variables here
+API_SECRET = "YOUR_SECRET" # For basic authentication if needed

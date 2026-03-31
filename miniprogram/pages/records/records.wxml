@@ -1,0 +1,37 @@
+<view class="container">
+  <!-- 装饰背景 -->
+  <view class="decorative-bg">
+    <view class="ink-blob"></view>
+  </view>
+
+  <view class="header-banner">
+    <view class="banner-title title">思源忆旧</view>
+    <view class="banner-sub">记录每一次跨越山海的相聚</view>
+  </view>
+
+  <!-- 列表容器 -->
+  <scroll-view class="records-list" scroll-y enable-back-to-top>
+    <view class="empty-state" wx:if="{{records.length === 0 && !loading}}">
+      <text class="empty-icon">🍃</text>
+      <text class="empty-text">往期精彩，静候佳音</text>
+    </view>
+
+    <view class="record-card xieyi-card" 
+          wx:for="{{records}}" 
+          wx:key="_id" 
+          bindtap="goToDetail" 
+          data-id="{{item._id}}">
+      <view class="record-content">
+        <view class="record-title title">{{item.title}}</view>
+        <view class="record-summary">{{item.summary}}</view>
+        <view class="record-meta">
+          <view class="publish-date">{{item.publishDate}}</view>
+          <view class="read-more">回顾全文 →</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="loading-more" wx:if="{{loading}}">正在翻阅书卷...</view>
+    <view class="no-more" wx:if="{{!hasMore && records.length > 0}}">—— 已阅毕 ——</view>
+  </scroll-view>
+</view>
