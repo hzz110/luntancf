@@ -1,0 +1,75 @@
+<view class="container my-page">
+  <!-- 加载状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    <view class="loading-icon"></view>
+    <text>寻觅缘起中...</text>
+  </view>
+
+  <block wx:elif="{{registration}}">
+    <!-- 签到码板块 -->
+    <view class="ticket-section">
+      <view class="main-ticket-icon">
+        <view class="inner-ticket">
+          <view class="ticket-hole left"></view>
+          <view class="ticket-line"></view>
+          <view class="ticket-center"></view>
+          <view class="ticket-line"></view>
+          <view class="ticket-hole right"></view>
+        </view>
+      </view>
+      <view class="ticket-title title">我的签到码</view>
+      <view class="ticket-subtitle">预约成功 · 2026.4.18 上海</view>
+    </view>
+
+    <!-- 胸卡与保存板块 -->
+    <view class="badge-section">
+      <view class="badge-card">
+        <view class="phone-mockup">
+          <view class="screen">
+            <view class="screen-block block-top"></view>
+            <view class="screen-block block-mid"></view>
+            <view class="screen-block block-bottom"></view>
+          </view>
+          <view class="badge-tag">
+            {{userInfo.name}} · {{userInfo.major}}
+          </view>
+        </view>
+      </view>
+      <view class="badge-hint">长按或截图保存，现场凭此入场</view>
+    </view>
+
+    <!-- 座位分配板块 -->
+    <view class="seating-card" wx:if="{{seatInfo}}">
+      <view class="seating-header">
+        <text class="seating-title title">雅席已定</text>
+        <text class="seating-desk">{{seatInfo.tableName}} {{seatInfo.seatNo}}</text>
+      </view>
+      <view class="seating-mates-label">同宴校友:</view>
+      <view class="seating-mates-list">
+        <view class="mate-pill" wx:for="{{tableSeats}}" wx:key="name">
+          {{item.name}} · {{item.major || item.location}}
+        </view>
+      </view>
+      <view class="seating-guide">
+        <text class="guide-icon">📍</text>
+        <text class="guide-text">{{seatInfo.guide || '请根据现场指示牌进入会场'}}</text>
+      </view>
+    </view>
+
+    <view class="seating-card empty" wx:else>
+      <view class="seating-header">
+        <text class="seating-title title">座位安排中</text>
+      </view>
+      <view class="seating-guide">
+        <text class="guide-text">组委会正在为您精心排座，请于论坛前日再行查看。</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 未报名状态 -->
+  <view class="empty-state" wx:else>
+    <view class="empty-icon">🍃</view>
+    <view class="empty-text">思源湖畔，待君而归</view>
+    <button class="btn-primary" bindtap="goToRegistration">立即预约报名</button>
+  </view>
+</view>

@@ -1,0 +1,244 @@
+.container {
+  padding: 0;
+  background-color: var(--bg-color);
+}
+
+.header-section {
+  position: relative;
+  height: 520rpx; /* 稍微增加高度以展现水墨背景 */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-image-placeholder {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%; height: 100%;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(27, 77, 62, 0.1) 0%, 
+    rgba(27, 77, 62, 0.3) 60%, 
+    var(--bg-color) 100%);
+  z-index: 2;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 10;
+  color: #ffffff;
+  text-align: center;
+  padding: 0 40rpx;
+  text-shadow: 0 4rpx 20rpx rgba(0,0,0,0.2);
+}
+
+.greeting {
+  font-size: 32rpx;
+  font-weight: 300;
+  opacity: 0.95;
+  letter-spacing: 6rpx;
+  margin-bottom: 20rpx;
+  font-family: serif; /* 增加一点人文感 */
+}
+
+.forum-title {
+  font-size: 52rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  line-height: 1.2;
+}
+
+.intro-section {
+  margin: -60rpx 40rpx 40rpx 40rpx; /* 向上偏移更多产生重叠效果 */
+  position: relative;
+  z-index: 20;
+}
+
+.intro-text {
+  font-size: 28rpx;
+  color: var(--text-dark);
+  margin-bottom: 20rpx;
+  line-height: 1.8;
+  opacity: 0.85;
+  text-align: center;
+}
+
+.intro-text:last-child {
+  margin-bottom: 0;
+}
+
+/* 快速入口 */
+.quick-access-section {
+  padding: 0 40rpx 40rpx 40rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  margin-bottom: 32rpx;
+  color: var(--primary-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: "";
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--accent-color);
+  margin-right: 16rpx;
+  border-radius: 4rpx;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24rpx;
+}
+
+.grid-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 40rpx 4rpx 40rpx 4rpx; /* 有机形态 */
+  padding: 40rpx 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1rpx solid rgba(125, 185, 182, 0.1);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-card.prim {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(125, 185, 182, 0.05) 100%);
+  border: 1rpx solid rgba(27, 77, 62, 0.15);
+  box-shadow: 0 12rpx 32rpx rgba(27, 77, 62, 0.05);
+}
+
+.grid-card.prim::after {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 60rpx; height: 60rpx;
+  background: linear-gradient(225deg, var(--accent-color) 0%, transparent 50%);
+  opacity: 0.1;
+}
+
+.grid-card:active {
+  transform: scale(0.96);
+  background: rgba(240, 247, 247, 0.9);
+}
+
+.grid-icon {
+  font-size: 48rpx;
+  margin-bottom: 24rpx;
+  background: #f8faf9;
+  width: 90rpx;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24rpx; /* 稍微方圆一点 */
+}
+
+.grid-card.prim .grid-icon {
+  background: rgba(125, 185, 182, 0.1);
+}
+
+.grid-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+  color: var(--text-dark);
+  letter-spacing: 2rpx;
+}
+
+.grid-sub {
+  font-size: 22rpx;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+/* 温馨提示 */
+.reminder-card {
+  margin: 0 40rpx 60rpx 40rpx;
+  background: linear-gradient(to right, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+  border-radius: 30rpx;
+  padding: 32rpx 40rpx;
+  border: 1rpx dashed var(--accent-color);
+}
+
+.reminder-title {
+  font-size: 30rpx;
+  margin-bottom: 12rpx;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.reminder-text {
+  font-size: 26rpx;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* 嘉宾介绍 */
+.guests-section {
+  padding: 0 40rpx 60rpx 40rpx;
+}
+
+.guest-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-info {
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.guest-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+  color: var(--primary-color);
+}
+
+.guest-summary {
+  font-size: 24rpx;
+  color: var(--text-light);
+  letter-spacing: 1rpx;
+}
+
+.guest-story {
+  font-size: 28rpx;
+  color: var(--text-dark);
+  line-height: 1.8;
+  padding: 32rpx;
+  background: #ffffff;
+  border-radius: 8rpx 40rpx 8rpx 40rpx;
+  position: relative;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.02);
+}
+
+.guest-story::before {
+  content: "“";
+  position: absolute;
+  left: 20rpx;
+  top: -10rpx;
+  font-size: 60rpx;
+  color: var(--secondary-color);
+  opacity: 0.3;
+  font-family: serif;
+}
