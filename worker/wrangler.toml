@@ -3,13 +3,13 @@ main = "src/index.js"
 compatibility_date = "2024-03-31"
 
 [[d1_databases]]
-binding = "DB" # Available in your worker as env.DB
+binding = "DB"
 database_name = "luntan_db"
-database_id = "YOUR_D1_DATABASE_ID_HERE"
+database_id = "0c6cb12b-de4f-4bed-87b3-6fd6699765f9"
 
 [[r2_buckets]]
 binding = "BUCKET"
-bucket_name = "luntan_assets"
+bucket_name = "luntan-assets"
 
 [vars]
 # Add any environment variables here
