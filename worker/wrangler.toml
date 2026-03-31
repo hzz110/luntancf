@@ -7,9 +7,9 @@ binding = "DB"
 database_name = "luntan_db"
 database_id = "0c6cb12b-de4f-4bed-87b3-6fd6699765f9"
 
-[[r2_buckets]]
-binding = "BUCKET"
-bucket_name = "luntan-assets"
+# [[r2_buckets]]
+# binding = "BUCKET"
+# bucket_name = "luntan-assets"
 
 [vars]
 # Add any environment variables here
