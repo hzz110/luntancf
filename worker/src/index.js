@@ -21,6 +21,16 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
+    // Security check: Verify X-Secret header
+    const secret = env.API_SECRET;
+    const clientSecret = request.headers.get('X-Secret');
+    if (secret && clientSecret !== secret) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: corsHeaders
+      });
+    }
+
     try {
       // 1. GET /api/records - Fetch list of records
       if (path === '/api/records' && method === 'GET') {
